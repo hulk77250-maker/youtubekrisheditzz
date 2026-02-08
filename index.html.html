@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KRISH EDITZ</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(135deg,#120000,#1a0000,#250000);
+color:white;
+overflow-x:hidden;
+}
+
+/* RED SNOW PARTICLES */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* NAVBAR */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+position:fixed;
+width:100%;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,0,0,0.4);
+z-index:1000;
+}
+
+nav h2{
+color:#ff2d2d;
+letter-spacing:2px;
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#ff2d2d;
+}
+
+/* SECTIONS */
+section{
+min-height:100vh;
+padding:120px 8%;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.glass{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(25px);
+border:1px solid rgba(255,0,0,0.3);
+border-radius:20px;
+padding:40px;
+max-width:900px;
+width:100%;
+box-shadow:0 0 40px rgba(255,0,0,0.2);
+animation:fade 1s ease;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 25px;
+background:#ff2d2d;
+border-radius:30px;
+text-decoration:none;
+color:white;
+transition:.4s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #ff2d2d;
+}
+
+/* ABOUT TEXT ALIGN */
+.about-text{
+text-align:center;
+line-height:1.8;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+nav ul{display:none;}
+}
+
+</style>
+</head>
+<body>
+
+<canvas id="snow"></canvas>
+
+<nav>
+<h2>KRISH_EDITZ</h2>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#community">Community</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#earning">Earning</a></li>
+</ul>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+<div class="glass">
+<h1>Welcome To KRISH EDITZ</h1>
+<p>Official Creator Website</p>
+<a href="https://youtube.com/@krisheditzofficial?si=4Fl4RlqhnsERIPNR" target="_blank" class="btn">Visit My YouTube</a>
+</div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+<div class="glass">
+<h2>Community Update</h2>
+<img src="YOUR_IMAGE_LINK_HERE" style="width:100%;border-radius:15px;margin:20px 0;">
+<p>If you need 100GB Editing Pack 🎬<br>
+Subscribe & Check Link In Bio 🔥</p>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="glass about-text">
+
+<h2>𝐇𝐞𝐲, 𝐠𝐮𝐲𝐬 👇</h2>
+<h3>👉 𝐓𝐇𝐀𝐍𝐊 𝐘𝐎𝐔 𝐅𝐎𝐑 𝐕𝐈𝐒𝐈𝐓𝐈𝐍𝐆 🙏</h3>
+<h2>🔥 𝐌𝐘 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 🔥</h2>
+<h1>KRISH_EDITZ</h1>
+
+<br>
+
+<p>
+I am only 13 years old, but I bring 4 years of powerful experience in video editing. 🎥  
+For me, editing is not just a task—it's a passion. ❤️  
+My promise to you: Here, you will only find high-quality, professional-level edits. ✨  
+If you enjoy fast-paced, creative videos, hit the subscribe button! 🚀
+</p>
+
+<br>
+
+<p>
+🎯 The 1 Million Subscriber milestone is the ultimate goal fueling my journey.  
+My commitment to excellence is unwavering.
+</p>
+
+<br>
+
+<p>
+My editing skills are the product of four years of dedicated practice, developed while creating content for six channels.
+</p>
+
+</div>
+</section>
+
+<!-- EARNING -->
+<section id="earning">
+<div class="glass">
+<h2>Earning Info</h2>
+<p>The channel is partially monetized.  
+It can't be fully monetized currently.  
+Further information cannot be provided.</p>
+</div>
+</section>
+
+<script>
+
+/* RED SNOW EFFECT */
+const canvas = document.getElementById("snow");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<60;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+d:Math.random()*1
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="rgba(255,0,0,0.4)";
+ctx.beginPath();
+for(let i=0;i<particles.length;i++){
+let p=particles[i];
+ctx.moveTo(p.x,p.y);
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2,true);
+}
+ctx.fill();
+move();
+}
+
+function move(){
+for(let i=0;i<particles.length;i++){
+let p=particles[i];
+p.y+=p.d;
+if(p.y>canvas.height){
+p.y=0;
+p.x=Math.random()*canvas.width;
+}
+}
+}
+
+setInterval(draw,33);
+
+</script>
+
+</body>
+</html>
